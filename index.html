@@ -1,168 +1,54 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>طلبات - اطلب أي منتج بسهولة</title>
-  <style>
-    body {
-      font-family: 'Tahoma', sans-serif;
-      background-color: #f9f9f9;
-      margin: 0;
-      padding: 0;
-      font-size: 1rem;
-    }
-    header {
-      background-color: #1e90ff;
-      color: white;
-      padding: 15px;
-      text-align: center;
-    }
-    .container {
-      max-width: 700px;
-      margin: 30px auto;
-      background-color: #fff;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    label {
-      display: block;
-      margin-top: 15px;
-      font-weight: bold;
-    }
-    input, textarea {
-      width: 100%;
-      padding: 10px;
-      margin-top: 5px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-    }
-    button, .add-product-btn {
-      background-color: #1e90ff;
-      color: white;
-      padding: 12px;
-      border: none;
-      margin-top: 20px;
-      font-size: 1rem;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-    button:hover, .add-product-btn:hover {
-      background-color: #005f7f;
-    }
-    .remove-btn {
-      background-color: #dc3545;
-      color: white;
-      border: none;
-      padding: 8px 12px;
-      border-radius: 5px;
-      margin-top: 10px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-    .remove-btn:hover {
-      background-color: #a72633;
-    }
-    footer {
-      text-align: center;
-      margin-top: 30px;
-      font-size: 1rem;
-      color: #555;
-    }
-    .whatsapp-float {
-      position: fixed;
-      bottom: 20px;
-      left: 20px;
-      background-color: #25d366;
-      color: white;
-      border-radius: 50px;
-      padding: 10px 15px;
-      text-decoration: none;
-      font-weight: bold;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-    }
-    .product-group {
-      border: 1px solid #ddd;
-      padding: 15px;
-      margin-top: 15px;
-      border-radius: 8px;
-      background-color: #f1f1f1;
-    }
-    @media (max-width: 600px) {
-      button, .add-product-btn, .remove-btn {
-        font-size: 1.2rem;
-        padding: 15px;
-      }
-    }
-  </style>
 </head>
 <body>
-
-<header>
-  <h1>طلبات</h1>
-  <p>اطلب أي منتج من أي موقع إلكتروني بسهولة</p>
-</header>
-
-<div class="container">
   <form id="orderForm">
-    <div id="productContainer">
-      <div class="product-group">
-        <label>رابط المنتج (أو النص الذي يحتوي على الرابط)</label>
-        <input type="text" name="productLink[]" placeholder="مثال: SHEIN بدلة ... https://shein.com/xyz" required>
-        <label>الكمية المطلوبة</label>
-        <input type="number" name="quantity[]" min="1" value="1" required>
-      </div>
-    </div>
+    <h2>رابط المنتج:</h2>
+    <input type="text" name="productLink[]" placeholder="رابط المنتج" required />
 
-    <button type="button" class="add-product-btn" onclick="addProduct()">أضف منتج آخر</button>
+    <h2>الكمية:</h2>
+    <input type="number" name="quantity[]" value="1" min="1" required />
 
-    <label>الاسم الكامل</label>
-    <input type="text" id="fullName" placeholder="اكتب اسمك هنا" required>
+    <h2>الاسم:</h2>
+    <input type="text" id="fullName" required />
 
-    <label>رقم الجوال</label>
-    <input type="tel" id="phone" placeholder="مثال: 77xxxxxxx" required>
+    <h2>رقم الجوال:</h2>
+    <input type="tel" id="phone" required />
 
-    <label>مكان التوصيل</label>
-    <textarea id="address" rows="3" placeholder="المدينة – الحي – أقرب معلم" required></textarea>
+    <h2>العنوان:</h2>
+    <textarea id="address" required></textarea>
 
+    <br><br>
     <button type="submit">أرسل طلبي</button>
   </form>
-</div>
 
-<a class="whatsapp-float" href="https://wa.me/967782662000" target="_blank">تواصل واتساب</a>
+  <script>
+    document.getElementById("orderForm").addEventListener("submit", function(e) {
+      e.preventDefault();
 
-<footer>
-  <p>موقع المكتب: صنعاء، شارع القيادة، بجوار كاك بنك</p>
-  <p>رقم واتساب: 782662000</p>
-</footer>
+      const name = document.getElementById("fullName").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+      const address = document.getElementById("address").value.trim();
+      const link = document.querySelector('input[name="productLink[]"]').value.trim();
+      const quantity = document.querySelector('input[name="quantity[]"]').value.trim();
 
-<script>
-  function addProduct() {
-    const container = document.getElementById('productContainer');
-    const newGroup = document.createElement('div');
-    newGroup.classList.add('product-group');
-    newGroup.innerHTML = \`
-      <label>رابط المنتج (أو النص الذي يحتوي على الرابط)</label>
-      <input type="text" name="productLink[]" placeholder="مثال: SHEIN بدلة ... https://shein.com/xyz" required>
-      <label>الكمية المطلوبة</label>
-      <input type="number" name="quantity[]" min="1" value="1" required>
-      <button type="button" class="remove-btn" onclick="removeProduct(this)">حذف</button>
-    \`;
-    container.appendChild(newGroup);
-  }
+      let message = `طلب جديد:%0A`;
+      message += `الاسم: ${name}%0A`;
+      message += `الجوال: ${phone}%0A`;
+      message += `العنوان: ${address}%0A`;
+      message += `رابط المنتج: ${link}%0A`;
+      message += `الكمية: ${quantity}`;
 
-  function removeProduct(button) {
-    const group = button.parentNode;
-    group.parentNode.removeChild(group);
-  }
+      // رقم الواتساب مع مفتاح اليمن 967
+      const whatsappNumber = "967772986916";
+      const whatsappURL = `https://wa.me/${whatsappNumber}?text=${message}`;
 
-  document.getElementById('orderForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    alert('تم إرسال الطلب بنجاح! (هنا يمكنك ربطه بباك إند أو واتساب)');
-  });
-</script>
-
+      window.open(whatsappURL, "_blank");
+    });
+  </script>
 </body>
 </html>
