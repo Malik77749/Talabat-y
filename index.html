@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -110,8 +109,8 @@
   <form id="orderForm">
     <div id="productContainer">
       <div class="product-group">
-        <label>رابط المنتج</label>
-        <input type="url" name="productLink[]" placeholder="مثال: https://example.com/product/xyz" required>
+        <label>رابط المنتج (أو النص الذي يحتوي على الرابط)</label>
+        <input type="text" name="productLink[]" placeholder="مثال: SHEIN بدلة ... https://shein.com/xyz" required>
         <label>الكمية المطلوبة</label>
         <input type="number" name="quantity[]" min="1" value="1" required>
       </div>
@@ -138,6 +137,32 @@
   <p>موقع المكتب: صنعاء، شارع القيادة، بجوار كاك بنك</p>
   <p>رقم واتساب: 782662000</p>
 </footer>
+
+<script>
+  function addProduct() {
+    const container = document.getElementById('productContainer');
+    const newGroup = document.createElement('div');
+    newGroup.classList.add('product-group');
+    newGroup.innerHTML = \`
+      <label>رابط المنتج (أو النص الذي يحتوي على الرابط)</label>
+      <input type="text" name="productLink[]" placeholder="مثال: SHEIN بدلة ... https://shein.com/xyz" required>
+      <label>الكمية المطلوبة</label>
+      <input type="number" name="quantity[]" min="1" value="1" required>
+      <button type="button" class="remove-btn" onclick="removeProduct(this)">حذف</button>
+    \`;
+    container.appendChild(newGroup);
+  }
+
+  function removeProduct(button) {
+    const group = button.parentNode;
+    group.parentNode.removeChild(group);
+  }
+
+  document.getElementById('orderForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    alert('تم إرسال الطلب بنجاح! (هنا يمكنك ربطه بباك إند أو واتساب)');
+  });
+</script>
 
 </body>
 </html>
