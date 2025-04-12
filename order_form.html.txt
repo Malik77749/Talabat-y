@@ -1,0 +1,18 @@
+document.getElementById('orderForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  const fullName = document.getElementById('fullName').value;
+  const phone = document.getElementById('phone').value;
+  const address = document.getElementById('address').value;
+
+  let message = `طلب جديد من: ${fullName}\nرقم الجوال: ${phone}\nمكان التوصيل: ${address}\n\nالمنتجات المطلوبة:\n`;
+
+  const productLinks = document.querySelectorAll('input[name="productLink[]"]');
+  const quantities = document.querySelectorAll('input[name="quantity[]"]');
+  for (let i = 0; i < productLinks.length; i++) {
+    message += `رابط المنتج: ${productLinks[i].value} - الكمية: ${quantities[i].value}\n`;
+  }
+
+  const whatsappUrl = `https://wa.me/967782662000?text=${encodeURIComponent(message)}`;
+  window.open(whatsappUrl, '_blank'); // فتح الواتساب برسالة جديدة
+});
