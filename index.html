@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>طلبات - اطلب أي منتج بسهولة</title>
 
-  <!-- وسوم المعاينة عند مشاركة الرابط -->
+  <!-- وسوم Open Graph لمشاركة الرابط -->
   <meta property="og:title" content="طلبات - اطلب أي منتج بسهولة">
-  <meta property="og:description" content="اطلب منتجاتك من الإنترنت بكل سهولة ووصّلها لأي مكان في اليمن.">
-  <meta property="og:image" content="https://raw.githubusercontent.com/اسم_المستخدم/اسم_المستودع/main/land.png">
-  <meta property="og:url" content="https://اسم_المستخدم.github.io/اسم_المستودع/">
+  <meta property="og:description" content="اطلب أي منتج من أي موقع إلكتروني بسهولة">
+  <meta property="og:image" content="https://malik77749.github.io/Talabat-y/land.png">
+  <meta property="og:url" content="https://malik77749.github.io/Talabat-y/">
   <meta property="og:type" content="website">
 
   <style>
@@ -20,20 +20,29 @@
       padding: 0;
       font-size: 1rem;
     }
+
     header {
-      background-color: #032ffb;
-      color: white;
-      padding: 0;
+      background-image: url('logo.png');
+      background-size: cover;
+      background-position: center;
+      height: 200px;
       text-align: center;
-      position: relative;
+      color: white;
     }
-    header img {
-      width: 100%;
-      height: auto;
-      max-height: 200px;
-      object-fit: cover;
-      opacity: 0.95;
+
+    header h1 {
+      padding-top: 60px;
+      margin: 0;
+      font-size: 2.2rem;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
     }
+
+    header p {
+      margin: 5px 0 0;
+      font-size: 1.1rem;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+    }
+
     .container {
       max-width: 700px;
       margin: 30px auto;
@@ -42,11 +51,13 @@
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
+
     label {
       display: block;
       margin-top: 15px;
       font-weight: bold;
     }
+
     input, textarea {
       width: 100%;
       padding: 10px;
@@ -54,6 +65,7 @@
       border-radius: 5px;
       border: 1px solid #ccc;
     }
+
     button, .add-product-btn {
       background-color: #032ffb;
       color: white;
@@ -67,10 +79,12 @@
       box-shadow: 0 4px #021fb2;
       transform: translateY(0);
     }
+
     button:active, .add-product-btn:active {
       box-shadow: 0 2px #021fb2;
       transform: translateY(2px);
     }
+
     .remove-btn {
       background-color: #fcd004;
       color: black;
@@ -83,16 +97,19 @@
       box-shadow: 0 4px #c2a802;
       transform: translateY(0);
     }
+
     .remove-btn:active {
       box-shadow: 0 2px #c2a802;
       transform: translateY(2px);
     }
+
     footer {
       text-align: center;
       margin-top: 30px;
       font-size: 1rem;
       color: #555;
     }
+
     .whatsapp-float {
       position: fixed;
       bottom: 20px;
@@ -105,6 +122,7 @@
       font-weight: bold;
       box-shadow: 0 2px 5px rgba(0,0,0,0.3);
     }
+
     .product-group {
       border: 1px solid #ddd;
       padding: 15px;
@@ -112,6 +130,7 @@
       border-radius: 8px;
       background-color: #f1f1f1;
     }
+
     @media (max-width: 600px) {
       button, .add-product-btn, .remove-btn {
         font-size: 1.2rem;
@@ -123,7 +142,8 @@
 <body>
 
 <header>
-  <img src="logo.png" alt="شعار طلبات">
+  <h1>طلبات</h1>
+  <p>اطلب أي منتج من أي موقع إلكتروني بسهولة</p>
 </header>
 
 <div class="container">
