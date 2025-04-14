@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -19,6 +18,13 @@
       padding: 15px;
       text-align: center;
     }
+    .logo-header {
+      display: block;
+      margin: 0 auto;
+      margin-bottom: 10px;
+      width: 120px;
+      filter: blur(1px);
+    }
     .container {
       max-width: 700px;
       margin: 30px auto;
@@ -26,6 +32,8 @@
       padding: 20px;
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      position: relative;
+      z-index: 1;
     }
     label {
       display: block;
@@ -89,6 +97,7 @@
       text-decoration: none;
       font-weight: bold;
       box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+      z-index: 999;
     }
     .product-group {
       border: 1px solid #ddd;
@@ -96,6 +105,27 @@
       margin-top: 15px;
       border-radius: 8px;
       background-color: #f1f1f1;
+    }
+    .middle-bg {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      width: 90%;
+      max-width: 600px;
+      transform: translate(-50%, -50%);
+      z-index: 0;
+      opacity: 0.3;
+      filter: blur(4px);
+    }
+    .bottom-bg {
+      position: fixed;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      opacity: 0.2;
+      z-index: 0;
+      filter: blur(3px);
     }
     @media (max-width: 600px) {
       button, .add-product-btn, .remove-btn {
@@ -107,7 +137,15 @@
 </head>
 <body>
 
+  <!-- صورة منتصف الصفحة -->
+  <img src="images/PM1.png" alt="خلفية وسط الصفحة" class="middle-bg">
+
+  <!-- صورة أسفل الصفحة -->
+  <img src="images/land.png" alt="خلفية أسفل الصفحة" class="bottom-bg">
+
 <header>
+  <!-- شعار الموقع -->
+  <img src="images/logo.png" alt="شعار طلبات" class="logo-header">
   <h1>طلبات</h1>
   <p>اطلب أي منتج من أي موقع إلكتروني بسهولة</p>
 </header>
