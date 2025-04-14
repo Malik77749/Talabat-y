@@ -4,6 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>طلبات - اطلب أي منتج بسهولة</title>
+
+  <!-- وسوم المعاينة عند مشاركة الرابط -->
+  <meta property="og:title" content="طلبات - اطلب أي منتج بسهولة">
+  <meta property="og:description" content="اطلب منتجاتك من الإنترنت بكل سهولة ووصّلها لأي مكان في اليمن.">
+  <meta property="og:image" content="https://raw.githubusercontent.com/اسم_المستخدم/اسم_المستودع/main/land.png">
+  <meta property="og:url" content="https://اسم_المستخدم.github.io/اسم_المستودع/">
+  <meta property="og:type" content="website">
+
   <style>
     body {
       font-family: 'Tahoma', sans-serif;
@@ -11,21 +19,20 @@
       margin: 0;
       padding: 0;
       font-size: 1rem;
-      position: relative;
-      overflow-x: hidden;
     }
     header {
       background-color: #032ffb;
       color: white;
+      padding: 0;
       text-align: center;
       position: relative;
-      padding: 0;
     }
-    .logo-header {
+    header img {
       width: 100%;
-      max-height: 250px;
+      height: auto;
+      max-height: 200px;
       object-fit: cover;
-      display: block;
+      opacity: 0.95;
     }
     .container {
       max-width: 700px;
@@ -34,8 +41,6 @@
       padding: 20px;
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      position: relative;
-      z-index: 1;
     }
     label {
       display: block;
@@ -87,8 +92,6 @@
       margin-top: 30px;
       font-size: 1rem;
       color: #555;
-      position: relative;
-      z-index: 1;
     }
     .whatsapp-float {
       position: fixed;
@@ -101,7 +104,6 @@
       text-decoration: none;
       font-weight: bold;
       box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-      z-index: 999;
     }
     .product-group {
       border: 1px solid #ddd;
@@ -121,7 +123,7 @@
 <body>
 
 <header>
-  <img src="logo.png" alt="شعار طلبات" class="logo-header">
+  <img src="logo.png" alt="شعار طلبات">
 </header>
 
 <div class="container">
