@@ -17,15 +17,15 @@
     header {
       background-color: #032ffb;
       color: white;
-      padding: 15px;
       text-align: center;
       position: relative;
+      padding: 0;
     }
     .logo-header {
-      max-width: 150px;
+      width: 100%;
+      max-height: 250px;
+      object-fit: cover;
       display: block;
-      margin: 0 auto 10px;
-      filter: blur(1.5px);
     }
     .container {
       max-width: 700px;
@@ -36,24 +36,6 @@
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
       position: relative;
       z-index: 1;
-    }
-    .middle-bg {
-      position: absolute;
-      top: 30%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 80%;
-      opacity: 0.1;
-      z-index: 0;
-    }
-    .bottom-bg {
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 100%;
-      opacity: 0.1;
-      z-index: 0;
     }
     label {
       display: block;
@@ -140,12 +122,7 @@
 
 <header>
   <img src="logo.png" alt="شعار طلبات" class="logo-header">
-  <h1>طلبات</h1>
-  <p>اطلب أي منتج من أي موقع إلكتروني بسهولة</p>
 </header>
-
-<img src="PM1.png" alt="خلفية وسط الصفحة" class="middle-bg">
-<img src="land.png" alt="خلفية أسفل الصفحة" class="bottom-bg">
 
 <div class="container">
   <form id="orderForm">
